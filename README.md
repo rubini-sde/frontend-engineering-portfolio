@@ -1,159 +1,100 @@
-# Turborepo starter
+# Frontend Engineering Portfolio
 
-This Turborepo starter is maintained by the Turborepo core team.
+A Turborepo monorepo containing a portfolio site and a shared design system component library.
 
-## Using this example
+## Apps
 
-Run the following command:
+| App | Port | Description |
+|---|---|---|
+| `apps/portfolio` | 3000 | Main Next.js 16 portfolio site |
+| `apps/docs` | 3001 | Secondary Next.js 16 site |
+| `apps/storybook` | 6006 | Storybook component explorer |
 
-```sh
-npx create-turbo@latest
-```
+## Packages
 
-## What's inside?
+| Package | Description |
+|---|---|
+| `@repo/ui` | Shared React component library (CVA + Tailwind v4) |
+| `@repo/eslint-config` | Shared ESLint configs (`base`, `next-js`, `react-internal`) |
+| `@repo/typescript-config` | Shared `tsconfig.json` bases |
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+## Getting started
 
 ```sh
-cd my-turborepo
-turbo build
+npm install
+npm run dev        # starts portfolio (:3000), docs (:3001)
 ```
 
-Without global `turbo`, use your package manager:
+To run Storybook:
 
 ```sh
-cd my-turborepo
-npx turbo build
-npm dlx turbo build
-npm exec turbo build
+cd apps/storybook && npm run dev   # http://localhost:6006
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+## Commands
 
 ```sh
-turbo build --filter=docs
+npm run dev          # start all dev servers
+npm run build        # build all apps and packages
+npm run lint         # lint all
+npm run check-types  # TypeScript type check across all packages
+npm run format       # Prettier format all TS/TSX/MD files
 ```
 
-Without global `turbo`:
+Target a specific app with Turbo's `--filter` flag:
 
 ```sh
-npx turbo build --filter=docs
-npm exec turbo build --filter=docs
-npm exec turbo build --filter=docs
+npx turbo dev --filter=portfolio
+npx turbo build --filter=portfolio
 ```
 
-### Develop
+## `@repo/ui` component library
 
-To develop all apps and packages, run the following command:
+Components live under `packages/ui/src/<component>/` with two files:
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+- `ComponentName.tsx` — implementation and exported types
+- `index.ts` — re-exports
+
+The package uses named path exports (e.g. `@repo/ui/button`, `@repo/ui/card`). When adding a new component, register it in `packages/ui/package.json`'s `exports` field.
+
+### Scaffold a new component
 
 ```sh
-cd my-turborepo
-turbo dev
+cd packages/ui && npm run generate:component
 ```
 
-Without global `turbo`, use your package manager:
+### Button
 
-```sh
-cd my-turborepo
-npx turbo dev
-npm exec turbo dev
-npm exec turbo dev
+```tsx
+import { Button } from "@repo/ui/button";
+
+// Variants: primary | secondary | tertiary | link | linkgray | destructive
+// Sizes:    medium | large | xlarge | 2xlarge
+
+<Button variant="primary" size="large">Save</Button>
+<Button variant="secondary" leftIcon={<PlusIcon />}>Add item</Button>
+
+// Icon-only — aria-label is required at the type level
+<Button leftIcon={<XIcon />} aria-label="Close" />
+
+// Native button props pass through (disabled, type, ref, onClick, …)
+<Button variant="destructive" disabled>Delete</Button>
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+### `cn` utility
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+```ts
+import { cn } from "@repo/ui/utils";
 
-```sh
-turbo dev --filter=web
+cn("px-4 py-2", isActive && "bg-indigo-700")
 ```
 
-Without global `turbo`:
+## Stack
 
-```sh
-npx turbo dev --filter=web
-npm exec turbo dev --filter=web
-npm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-npm exec turbo login
-npm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-npm exec turbo link
-npm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+- **Framework** — Next.js 16, React 19
+- **Styling** — Tailwind CSS v4
+- **Variants** — class-variance-authority (CVA)
+- **Class merging** — tailwind-merge
+- **Monorepo** — Turborepo + npm workspaces
+- **Language** — TypeScript 5.9
+- **Component explorer** — Storybook 8 (React + Vite)
