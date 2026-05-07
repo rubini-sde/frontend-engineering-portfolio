@@ -1,9 +1,23 @@
+export type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "destructive"
+  | "link"
+  | "linkgray";
+
+export type ButtonSize = "medium" | "large" | "xlarge" | "2xlarge";
+
+export type ButtonIcons = "left" | "right" | "both" | "only";
+
+export type ButtonStates = "normal" | "hover" | "focus" | "disabled";
+
 export type ButtonProps = {
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "tertiary" | "destructive" | "links";
-  size?: "medium" | "large" | "xlarge" | "2xlarge";
-  icons?: "left" | "right" | "both" | "only";
-  states?: "normal" | "hover" | "focus" | "disabled";
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  icons?: ButtonIcons;
+  states?: ButtonStates;
   onClick?: () => void;
   sxProps?: React.CSSProperties;
   ariaLabel?: string;
