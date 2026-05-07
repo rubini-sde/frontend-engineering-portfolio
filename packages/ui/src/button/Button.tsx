@@ -4,21 +4,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../utils/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-medium transition-colors focus-visible:outline-none cursor-pointer",
+  "inline-flex items-center justify-center gap-2 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
         primary:
-          "bg-indigo-700 text-white rounded-lg hover:bg-indigo-800 focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2 disabled:bg-neutral-200 disabled:text-neutral-400 disabled:cursor-not-allowed",
+          "bg-indigo-700 text-white rounded-lg hover:bg-indigo-800 focus-visible:ring-indigo-700 disabled:bg-neutral-200 disabled:text-neutral-400",
         secondary:
-          "border border-indigo-700 text-indigo-700 bg-transparent rounded-lg hover:bg-indigo-50 focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2 disabled:border-neutral-200 disabled:text-neutral-400 disabled:cursor-not-allowed",
+          "border border-indigo-700 text-indigo-700 bg-transparent rounded-lg hover:bg-indigo-50 focus-visible:ring-indigo-700 disabled:border-neutral-200 disabled:text-neutral-400",
         tertiary:
-          "text-indigo-700 rounded-lg hover:bg-indigo-50 focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2 disabled:text-neutral-400 disabled:cursor-not-allowed",
-        link: "text-indigo-700 underline hover:text-indigo-800 focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2 disabled:text-neutral-400 disabled:cursor-not-allowed",
+          "text-indigo-700 rounded-lg hover:bg-indigo-50 focus-visible:ring-indigo-700 disabled:text-neutral-400",
+        link: "text-indigo-700 underline hover:text-indigo-800 focus-visible:ring-indigo-700 disabled:text-neutral-400",
         linkgray:
-          "text-neutral-900 underline hover:text-neutral-700 focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 disabled:text-neutral-400 disabled:cursor-not-allowed",
+          "text-neutral-900 underline hover:text-neutral-700 focus-visible:ring-neutral-400 disabled:text-neutral-400",
         destructive:
-          "bg-red-600 text-white rounded-lg hover:bg-red-700 focus:ring-2 focus:ring-red-600 focus:ring-offset-2 disabled:bg-neutral-200 disabled:text-neutral-400 disabled:cursor-not-allowed",
+          "bg-red-600 text-white rounded-lg hover:bg-red-700 focus-visible:ring-red-600 disabled:bg-neutral-200 disabled:text-neutral-400",
       },
       size: {
         medium: "text-sm px-3.5 py-2",
@@ -26,54 +26,59 @@ const buttonVariants = cva(
         xlarge: "text-base px-5 py-3",
         "2xlarge": "text-base px-6 py-3.5",
       },
-      icons: {
-        left: "",
-        right: "",
-        both: "",
-        only: "",
+      iconOnly: {
+        true: "",
+        false: "",
       },
     },
     compoundVariants: [
-      { icons: "only", size: "medium", class: "p-2" },
-      { icons: "only", size: "large", class: "p-2.5" },
-      { icons: "only", size: "xlarge", class: "p-3" },
-      { icons: "only", size: "2xlarge", class: "p-3.5" },
+      { iconOnly: true, size: "medium", class: "p-2" },
+      { iconOnly: true, size: "large", class: "p-2.5" },
+      { iconOnly: true, size: "xlarge", class: "p-3" },
+      { iconOnly: true, size: "2xlarge", class: "p-3.5" },
     ],
     defaultVariants: {
       variant: "primary",
       size: "medium",
-      icons: "left",
+      iconOnly: false,
     },
   }
 );
 
-export type ButtonProps = VariantProps<typeof buttonVariants> & {
-  children: React.ReactNode;
-  states?: "normal" | "hover" | "focus" | "disabled";
-  onClick?: () => void;
-  sxProps?: React.CSSProperties;
-  ariaLabel?: string;
-  className?: string;
-};
+type BaseButtonProps = Omit<
+  React.ComponentPropsWithRef<"button">,
+  "children" | "aria-label"
+> &
+  Omit<VariantProps<typeof buttonVariants>, "iconOnly"> & {
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
+  };
+
+export type ButtonProps = BaseButtonProps &
+  (
+    | { children: React.ReactNode; "aria-label"?: string }
+    | { children?: never; "aria-label": string }
+  );
 
 export const Button = ({
-  children,
   variant,
   size,
-  icons,
-  states,
-  onClick,
-  sxProps,
-  ariaLabel,
+  leftIcon,
+  rightIcon,
+  children,
   className,
-}: ButtonProps) => (
-  <button
-    className={cn(buttonVariants({ variant, size, icons }), className)}
-    onClick={onClick}
-    style={sxProps}
-    aria-label={ariaLabel}
-    disabled={states === "disabled"}
-  >
-    {children}
-  </button>
-);
+  ...props
+}: ButtonProps) => {
+  const iconOnly = !children && (!!leftIcon || !!rightIcon);
+  return (
+    <button
+      type="button"
+      {...props}
+      className={cn(buttonVariants({ variant, size, iconOnly }), className)}
+    >
+      {leftIcon}
+      {children}
+      {rightIcon}
+    </button>
+  );
+};
