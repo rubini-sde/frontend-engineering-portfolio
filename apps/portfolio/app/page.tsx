@@ -1,5 +1,5 @@
-import { Button } from "@repo/ui/button";
 import { Card } from "@repo/ui/card";
+import { HeroCtas } from "./hero-ctas";
 
 const projects = [
   {
@@ -38,28 +38,7 @@ export default function Home() {
           TypeScript. Currently focused on design systems and developer
           tooling.
         </p>
-        <div className="flex flex-wrap gap-3 justify-center mt-2">
-          <Button
-            variant="primary"
-            size="large"
-            onClick={() => {
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            View Projects
-          </Button>
-          <Button
-            variant="secondary"
-            size="large"
-            onClick={() => {
-              window.location.href = "mailto:dthangakumar@gmail.com";
-            }}
-          >
-            Get in Touch
-          </Button>
-        </div>
+        <HeroCtas />
       </main>
 
       {/* Projects */}
