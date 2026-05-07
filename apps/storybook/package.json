@@ -1,0 +1,20 @@
+{
+  "name": "design-system-docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build"
+  },
+  "dependencies": {
+    "@repo/ui": "*"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@tailwindcss/vite": "^4.2.4",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "tailwindcss": "^4.2.4",
+    "typescript": "5.9.2"
+  }
+}
