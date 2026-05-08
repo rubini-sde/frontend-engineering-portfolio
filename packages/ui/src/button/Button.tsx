@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../utils/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed",
+  "inline-flex items-center justify-center gap-2 font-medium transition-colors min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -27,7 +27,11 @@ const buttonVariants = cva(
         "2xlarge": "text-base px-6 py-3.5",
       },
       iconOnly: {
-        true: "",
+        true: "min-w-11",
+        false: "",
+      },
+      fullWidth: {
+        true: "w-full",
         false: "",
       },
     },
@@ -41,6 +45,7 @@ const buttonVariants = cva(
       variant: "primary",
       size: "medium",
       iconOnly: false,
+      fullWidth: false,
     },
   }
 );
@@ -63,6 +68,7 @@ export type ButtonProps = BaseButtonProps &
 export const Button = ({
   variant,
   size,
+  fullWidth,
   leftIcon,
   rightIcon,
   children,
@@ -74,7 +80,7 @@ export const Button = ({
     <button
       type="button"
       {...props}
-      className={cn(buttonVariants({ variant, size, iconOnly }), className)}
+      className={cn(buttonVariants({ variant, size, iconOnly, fullWidth }), className)}
     >
       {leftIcon}
       {children}
