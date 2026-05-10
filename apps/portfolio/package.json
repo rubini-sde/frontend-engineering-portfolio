@@ -8,22 +8,29 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^6.19.3",
     "@repo/ui": "*",
+    "bcryptjs": "^3.0.3",
+    "iron-session": "^8.0.4",
     "next": "16.2.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@tailwindcss/postcss": "^4.2.4",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
+    "prisma": "^6.19.3",
     "tailwindcss": "^4.2.4",
     "typescript": "5.9.2"
   }
