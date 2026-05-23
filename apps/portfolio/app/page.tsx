@@ -6,13 +6,7 @@ const projects = [
     title: "Design System",
     description:
       "A shared component library built with React, Tailwind CSS, and Storybook — powering consistent UI across multiple apps.",
-    href: "https://github.com",
-  },
-  {
-    title: "Portfolio Site",
-    description:
-      "This site — a Next.js 16 app in a Turborepo monorepo, deployed to Vercel with automated previews on every PR.",
-    href: "https://github.com",
+    href: "https://github.com/rubini-sde/frontend-engineering-portfolio",
   },
 ];
 
