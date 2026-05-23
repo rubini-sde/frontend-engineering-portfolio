@@ -6,6 +6,12 @@ const projects = [
     title: "Design System",
     description:
       "A shared component library built with React, Tailwind CSS, and Storybook — powering consistent UI across multiple apps.",
+    href: "https://rubini-design-system-storybook.vercel.app/",
+  },
+  {
+    title: "FrontEnd Engineer Portfolio",
+    description:
+      "Built with Next.js and Tailwind CSS, showcasing my projects and experience as a frontend engineer.",
     href: "https://github.com/rubini-sde/frontend-engineering-portfolio",
   },
 ];
