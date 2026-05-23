@@ -14,12 +14,6 @@ const projects = [
       "This site — a Next.js 16 app in a Turborepo monorepo, deployed to Vercel with automated previews on every PR.",
     href: "https://github.com",
   },
-  {
-    title: "Project Three",
-    description:
-      "A placeholder for your next project. Replace with something you've built and are proud of.",
-    href: "https://github.com",
-  },
 ];
 
 export default function Home() {
@@ -35,8 +29,7 @@ export default function Home() {
         </h1>
         <p className="text-lg text-neutral-500 max-w-xl leading-relaxed">
           I build accessible, performant web applications with React and
-          TypeScript. Currently focused on design systems and developer
-          tooling.
+          TypeScript. Currently focused on design systems and developer tooling.
         </p>
         <HeroCtas />
       </main>
