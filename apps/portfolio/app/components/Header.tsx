@@ -8,7 +8,6 @@ export default function Header() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        marginBottom: "3.5rem",
       }}
     >
       <Link

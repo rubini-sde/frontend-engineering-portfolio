@@ -19,7 +19,7 @@ export default function Hero() {
         {/* Availability chip */}
         <div
           role="status"
-          aria-label="Currently open to new roles"
+          aria-label="Currently open to new opportunities"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -43,7 +43,7 @@ export default function Hero() {
               display: "inline-block",
             }}
           />
-          Open to new roles
+          Open to new opportunities
         </div>
 
         {/* Heading */}
