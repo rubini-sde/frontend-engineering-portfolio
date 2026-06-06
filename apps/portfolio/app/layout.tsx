@@ -10,7 +10,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Thanga · Senior Frontend Engineer",
+  title: "Rubini · Senior Frontend Engineer",
   description:
     "Senior Frontend Engineer with 7 years building fast, accessible, and beautifully designed products. React · Next.js · TypeScript.",
 };
