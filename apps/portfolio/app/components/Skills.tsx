@@ -20,6 +20,7 @@ const secondarySkills = [
 export default function Skills() {
   return (
     <section
+      id="skills"
       aria-labelledby="skills-heading"
       style={{ marginBottom: "3rem" }}
     >
