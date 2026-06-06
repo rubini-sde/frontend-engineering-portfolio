@@ -1,24 +1,54 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header
-      style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "3.5rem" }}
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: "3.5rem",
+      }}
     >
-      <div
-        style={{ fontWeight: 700, fontSize: 15, color: "var(--color-text)", letterSpacing: "-0.02em" }}
+      <Link
+        href="/"
+        aria-label="rubini.dev – go to homepage"
+        style={{ display: "flex", alignItems: "center", lineHeight: 0 }}
       >
-        rubini<span style={{ color: "var(--color-accent)" }}>.</span>dev
-      </div>
+        <Image
+          src="/rubini_logo_v1.png"
+          alt="rubini.dev"
+          width={200}
+          height={200}
+          priority
+          style={{ objectFit: "contain" }}
+        />
+      </Link>
 
-      <nav aria-label="Primary navigation" style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+      <nav
+        aria-label="Primary navigation"
+        style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}
+      >
         <a
           href="#highlights"
-          style={{ fontSize: 14, fontWeight: 500, color: "var(--color-muted)", cursor: "pointer" }}
+          style={{
+            fontSize: 14,
+            fontWeight: 500,
+            color: "var(--color-muted)",
+            cursor: "pointer",
+          }}
         >
           Work
         </a>
         <a
           href="#skills"
-          style={{ fontSize: 14, fontWeight: 500, color: "var(--color-muted)", cursor: "pointer" }}
+          style={{
+            fontSize: 14,
+            fontWeight: 500,
+            color: "var(--color-muted)",
+            cursor: "pointer",
+          }}
         >
           Skills
         </a>
