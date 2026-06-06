@@ -1,4 +1,5 @@
-import { IconDownload, IconArrowRight, IconMapPin } from "@tabler/icons-react";
+import Image from "next/image";
+import { IconDownload, IconArrowRight } from "@tabler/icons-react";
 
 export default function Hero() {
   return (
@@ -120,67 +121,23 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Right — avatar card */}
+      {/* Right — profile photo card */}
       <div
-        aria-hidden="true"
         style={{
-          background: "var(--color-chip-bg)",
-          borderRadius: 32,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "2.5rem 1.5rem",
-          gap: 12,
+          borderRadius: "50%",
+          overflow: "hidden",
+          aspectRatio: "1 / 1",
+          position: "relative",
         }}
       >
-        {/* Initials circle */}
-        <div
-          style={{
-            width: 90,
-            height: 90,
-            borderRadius: "50%",
-            background: "#F5C2AF",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: 700,
-            fontSize: 30,
-            color: "var(--color-accent-dk)",
-          }}
-        >
-          R
-        </div>
-
-        <div style={{ fontWeight: 700, fontSize: 15, color: "var(--color-text)" }}>
-          Rubini
-        </div>
-
-        <div
-          style={{
-            fontSize: 12,
-            color: "var(--color-muted)",
-            textAlign: "center",
-            lineHeight: 1.5,
-          }}
-        >
-          Senior Frontend Engineer
-          <br />
-          React · Next.js · TypeScript
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            fontSize: 11,
-            color: "var(--color-subtle)",
-          }}
-        >
-          <IconMapPin size={13} aria-hidden="true" />
-          Redmond, WA
-        </div>
+        <Image
+          src="/rubini_portfolio_headshot.png"
+          alt="Rubini, Senior Frontend Engineer"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center top" }}
+          priority
+          sizes="260px"
+        />
       </div>
 
       {/* Responsive: stack on mobile */}
