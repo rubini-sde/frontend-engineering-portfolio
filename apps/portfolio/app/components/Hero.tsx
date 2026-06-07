@@ -82,6 +82,7 @@ export default function Hero() {
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <a
             href="/resume.pdf"
+            download="Rubini_Dhanasekaran_Resume.pdf"
             aria-label="Download resume (PDF)"
             style={{
               background: "var(--color-accent)",
