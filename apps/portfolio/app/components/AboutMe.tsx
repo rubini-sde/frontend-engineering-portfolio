@@ -8,14 +8,17 @@ import Card from "./Card";
 import AboutChip from "./AboutChip";
 
 const chips = [
-  { icon: <IconMapPin size={14} aria-hidden="true" />, label: "Redmond, WA" },
+  {
+    icon: <IconMapPin size={14} aria-hidden="true" />,
+    label: "Greater Seattle Area",
+  },
   {
     icon: <IconBuildingStore size={14} aria-hidden="true" />,
     label: "Currently at Costco",
   },
   {
     icon: <IconSearch size={14} aria-hidden="true" />,
-    label: "Open to Senior / Staff roles",
+    label: "Open to Senior SDE roles",
   },
   {
     icon: <IconCertificate size={14} aria-hidden="true" />,
@@ -28,7 +31,9 @@ const accent = { color: "var(--color-accent)", fontWeight: 600 };
 
 export default function AboutMe() {
   return (
-    <Card style={{ borderRadius: 28, padding: "2rem 2.5rem", marginBottom: "3rem" }}>
+    <Card
+      style={{ borderRadius: 28, padding: "2rem 2.5rem", marginBottom: "3rem" }}
+    >
       <div
         style={{
           fontSize: 11,
@@ -58,12 +63,11 @@ export default function AboutMe() {
         cutting LCP nearly in half and building the observability pipeline
         engineers rely on in production.
         <br />
-        <br />
-        I care about the craft: clean component APIs, design systems that
-        scale, and the kind of attention to detail that makes an experience
-        feel <span style={accent}>right</span> — even when users can&apos;t say
-        why. I do my best work close to product, across disciplines, on
-        problems with real user impact.
+        <br />I care about the craft: clean component APIs, design systems that
+        scale, and the kind of attention to detail that makes an experience feel{" "}
+        <span style={accent}>right</span> — even when users can&apos;t say why.
+        I do my best work close to product, across disciplines, on problems with
+        real user impact.
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
         {chips.map((chip) => (

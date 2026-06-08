@@ -74,10 +74,9 @@ export default function Hero() {
             maxWidth: 400,
           }}
         >
-          Senior Frontend Engineer with 7 years turning complex requirements
-          into polished, performant products — obsessed with performance,
-          accessibility, and the details that make experiences feel
-          effortless.
+          Senior Frontend Engineer with 8+ years turning complex requirements
+          into polished, performant products - obsessed with performance,
+          accessibility, and the details that make experiences feel effortless.
         </p>
 
         {/* CTAs */}

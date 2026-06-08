@@ -12,7 +12,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Rubini · Senior Frontend Engineer",
   description:
-    "Senior Frontend Engineer with 7 years building fast, accessible, and beautifully designed products. React · Next.js · TypeScript.",
+    "Senior Frontend Engineer with 8 years building fast, accessible, and beautifully designed products. React · Next.js · TypeScript.",
 };
 
 export default function RootLayout({
