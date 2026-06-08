@@ -5,6 +5,7 @@ import {
   IconAccessible,
 } from "@tabler/icons-react";
 import HighlightCard from "./HighlightCard";
+import SectionHeading from "./SectionHeading";
 
 const cards = [
   {
@@ -52,35 +53,19 @@ export default function Highlights() {
       aria-labelledby="highlights-heading"
       style={{ marginBottom: "3rem" }}
     >
-      <h2
-        id="highlights-heading"
-        style={{
-          fontSize: 18,
-          fontWeight: 700,
-          color: "var(--color-text)",
-          marginBottom: "1.25rem",
-          letterSpacing: "-0.01em",
-        }}
-      >
-        Highlights
-      </h2>
+      <SectionHeading id="highlights-heading">IMPACT</SectionHeading>
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
           gap: "1rem",
         }}
-        className="highlights-grid"
+        className="grid-collapse-1"
       >
         {cards.map((card) => (
           <HighlightCard key={card.title} {...card} />
         ))}
       </div>
-      <style>{`
-        @media (max-width: 640px) {
-          .highlights-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }

@@ -12,7 +12,7 @@ export default function Hero() {
         alignItems: "center",
         marginBottom: "3rem",
       }}
-      className="hero-grid"
+      className="grid-collapse-1"
     >
       {/* Left — text content */}
       <div>
@@ -57,11 +57,11 @@ export default function Hero() {
             color: "var(--color-text)",
           }}
         >
-          Building the web,{" "}
+          Crafting interfaces that{" "}
           <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>
-            one pixel
+            scale
           </em>{" "}
-          at a time.
+          to millions.
         </h1>
 
         {/* Subtitle */}
@@ -74,8 +74,10 @@ export default function Hero() {
             maxWidth: 400,
           }}
         >
-          Senior Frontend Engineer with 7 years crafting fast, accessible, and
-          beautifully designed products at scale.
+          Senior Frontend Engineer with 7 years turning complex requirements
+          into polished, performant products — obsessed with performance,
+          accessibility, and the details that make experiences feel
+          effortless.
         </p>
 
         {/* CTAs */}
@@ -140,15 +142,6 @@ export default function Hero() {
           sizes="260px"
         />
       </div>
-
-      {/* Responsive: stack on mobile */}
-      <style>{`
-        @media (max-width: 640px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

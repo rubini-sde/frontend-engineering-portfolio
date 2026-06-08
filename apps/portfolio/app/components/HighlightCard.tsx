@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Card from "./Card";
 
 interface HighlightCardProps {
   icon: ReactNode;
@@ -18,14 +19,7 @@ export default function HighlightCard({
   description,
 }: HighlightCardProps) {
   return (
-    <div
-      style={{
-        background: "var(--color-surface)",
-        borderRadius: 20,
-        border: "1.5px solid var(--color-border)",
-        padding: "1.5rem",
-      }}
-    >
+    <Card>
       <div
         style={{
           width: 44,
@@ -71,6 +65,6 @@ export default function HighlightCard({
       >
         {description}
       </div>
-    </div>
+    </Card>
   );
 }

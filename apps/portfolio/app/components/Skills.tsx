@@ -1,4 +1,5 @@
 import SkillPill from "./SkillPill";
+import SectionHeading from "./SectionHeading";
 
 const coreSkills = [
   "React",
@@ -24,18 +25,7 @@ export default function Skills() {
       aria-labelledby="skills-heading"
       style={{ marginBottom: "3rem" }}
     >
-      <h2
-        id="skills-heading"
-        style={{
-          fontSize: 18,
-          fontWeight: 700,
-          color: "var(--color-text)",
-          marginBottom: "1.25rem",
-          letterSpacing: "-0.01em",
-        }}
-      >
-        Skills
-      </h2>
+      <SectionHeading id="skills-heading">Skills</SectionHeading>
       <ul
         style={{
           display: "flex",
