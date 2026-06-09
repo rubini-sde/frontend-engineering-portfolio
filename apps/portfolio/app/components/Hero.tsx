@@ -102,7 +102,7 @@ export default function Hero() {
             Resume
           </a>
           <a
-            href="#highlights"
+            href="#projects"
             style={{
               background: "var(--color-bg)",
               color: "var(--color-text)",
