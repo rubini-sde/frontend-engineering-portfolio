@@ -1,4 +1,4 @@
-import { IconStack2, IconShoppingCart } from "@tabler/icons-react";
+import { IconStack2, IconShoppingCart, IconSchool } from "@tabler/icons-react";
 import SectionHeading from "./SectionHeading";
 import ProjectCard from "./ProjectCard";
 
@@ -33,16 +33,30 @@ const projects = [
     linkColor: "var(--color-accent)",
     badge: "Live",
   },
+  // {
+  //   thumbIcon: <IconSchool size={34} color="#059669" aria-hidden="true" />,
+  //   thumbBg: "#EAF6EF",
+  //   eyebrow: "Coursework",
+  //   eyebrowColor: "#059669",
+  //   name: "Your Project Name",
+  //   description:
+  //     "Brief description of what it does, the problem it solves, and the key technical choices you made building it.",
+  //   tags: ["React", "Add tags"],
+  //   href: "#",
+  //   linkLabel: "View project",
+  //   linkColor: "#059669",
+  //   badge: "Course",
+  // },
 ];
 
 export default function Projects() {
   return (
-    <section aria-labelledby="projects-heading" style={{ marginBottom: "3rem" }}>
+    <section id="projects" aria-labelledby="projects-heading">
       <SectionHeading id="projects-heading">Projects</SectionHeading>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
+          gridTemplateColumns: "repeat(3, 1fr)",
           gap: "1rem",
         }}
         className="grid-collapse-1"
