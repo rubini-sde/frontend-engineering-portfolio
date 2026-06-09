@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   IconMapPin,
   IconBuildingStore,
@@ -6,8 +7,9 @@ import {
 } from "@tabler/icons-react";
 import Card from "./Card";
 import AboutChip from "./AboutChip";
+import SectionHeading from "./SectionHeading";
 
-const chips = [
+const chips: { icon: ReactNode; label: string; variant?: "default" | "cred" }[] = [
   {
     icon: <IconMapPin size={14} aria-hidden="true" />,
     label: "Greater Seattle Area",
@@ -23,6 +25,17 @@ const chips = [
   {
     icon: <IconCertificate size={14} aria-hidden="true" />,
     label: "UW JS Certificate",
+    variant: "cred",
+  },
+  {
+    icon: <IconCertificate size={14} aria-hidden="true" />,
+    label: "Oracle Certified",
+    variant: "cred",
+  },
+  {
+    icon: <IconCertificate size={14} aria-hidden="true" />,
+    label: "Microsoft Azure",
+    variant: "cred",
   },
 ];
 
@@ -34,18 +47,7 @@ export default function AboutMe() {
     <Card
       style={{ borderRadius: 28, padding: "2rem 2.5rem", marginBottom: "3rem" }}
     >
-      <div
-        style={{
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: "var(--color-subtle)",
-          marginBottom: "1rem",
-        }}
-      >
-        About me
-      </div>
+      <SectionHeading id="about-heading">About me</SectionHeading>
       <p
         style={{
           fontSize: 15,
