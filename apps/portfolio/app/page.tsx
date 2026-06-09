@@ -1,10 +1,21 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
-import Highlights from "./components/Highlights";
+import Experience from "./components/Experience";
+import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
-import Skills from "./components/Skills";
 import Footer from "./components/Footer";
+
+const divider = (
+  <div
+    aria-hidden="true"
+    style={{
+      height: "1.5px",
+      background: "var(--color-border)",
+      margin: "2.5rem 0",
+    }}
+  />
+);
 
 export default function Home() {
   return (
@@ -21,9 +32,13 @@ export default function Home() {
         <main id="main">
           <Hero />
           <AboutMe />
-          <Highlights />
+          {divider}
+          <Experience />
+          {divider}
+          <TechStack />
+          {divider}
           <Projects />
-          <Skills />
+          {divider}
         </main>
         <Footer />
       </div>

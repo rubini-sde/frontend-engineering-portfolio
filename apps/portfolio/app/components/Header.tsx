@@ -30,7 +30,7 @@ export default function Header() {
         style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}
       >
         <a
-          href="#highlights"
+          href="#experience"
           style={{
             fontSize: 14,
             fontWeight: 500,
@@ -41,7 +41,7 @@ export default function Header() {
           Work
         </a>
         <a
-          href="#skills"
+          href="#techstack"
           style={{
             fontSize: 14,
             fontWeight: 500,
@@ -49,7 +49,7 @@ export default function Header() {
             cursor: "pointer",
           }}
         >
-          Skills
+          Stack
         </a>
         <a
           href="mailto:rubini.sde@gmail.com"

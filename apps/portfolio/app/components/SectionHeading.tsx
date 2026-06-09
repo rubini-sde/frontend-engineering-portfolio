@@ -10,11 +10,12 @@ export default function SectionHeading({ id, children }: SectionHeadingProps) {
     <h2
       id={id}
       style={{
-        fontSize: 18,
+        fontSize: 11,
         fontWeight: 700,
-        color: "var(--color-text)",
-        marginBottom: "1.25rem",
-        letterSpacing: "-0.01em",
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        color: "var(--color-subtle)",
+        marginBottom: "1rem",
       }}
     >
       {children}
