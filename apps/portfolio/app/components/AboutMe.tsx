@@ -9,14 +9,18 @@ import Card from "./Card";
 import AboutChip from "./AboutChip";
 import SectionHeading from "./SectionHeading";
 
-const chips: { icon: ReactNode; label: string; variant?: "default" | "cred" }[] = [
+const chips: {
+  icon: ReactNode;
+  label: string;
+  variant?: "default" | "cred";
+}[] = [
   {
     icon: <IconMapPin size={14} aria-hidden="true" />,
     label: "Greater Seattle Area",
   },
   {
     icon: <IconBuildingStore size={14} aria-hidden="true" />,
-    label: "Currently at Costco",
+    label: "Currently at Costco Global Digital Experience",
   },
   {
     icon: <IconSearch size={14} aria-hidden="true" />,
@@ -57,13 +61,15 @@ export default function AboutMe() {
         }}
       >
         I&apos;m a Senior Frontend Engineer based in{" "}
-        <span style={strong}>Redmond, WA</span> with 8+ years of experience
-        building products that are{" "}
+        <span style={strong}>Greater Seattle Area, WA</span> with 8+ years of
+        experience building products that are{" "}
         <span style={accent}>fast, accessible, and built to last</span>. Most
-        recently at Costco, I&apos;ve owned the full frontend stack — from
-        architecting the <span style={strong}>Forge design system</span> to
-        cutting LCP nearly in half and building the observability pipeline
-        engineers rely on in production.
+        recently at Costco, I have designed, built, and maintained high-traffic
+        e-commerce features using <span style={strong}>Next.js</span> and{" "}
+        <span style={strong}>TypeScript</span> for critical transactional user
+        flows — membership verification, checkout-adjacent flows (address
+        management, payment), and shopping lists — serving{" "}
+        <span style={accent}>millions of daily users</span>.
         <br />
         <br />I care about the craft: clean component APIs, design systems that
         scale, and the kind of attention to detail that makes an experience feel{" "}
