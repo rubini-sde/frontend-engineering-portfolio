@@ -1,25 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { IconChevronDown } from "@tabler/icons-react";
 
 interface ExperienceItemProps {
-  logoInitials: string;
-  logoColor: string;
-  logoBg: string;
+  logoSrc: string;
   company: string;
   role: string;
   years: string;
-  contribution: string;
+  contribution: string | string[];
   tags: string[];
   highlightTags: string[];
   defaultOpen?: boolean;
 }
 
 export default function ExperienceItem({
-  logoInitials,
-  logoColor,
-  logoBg,
+  logoSrc,
   company,
   role,
   years,
@@ -59,20 +56,20 @@ export default function ExperienceItem({
         <div
           aria-hidden="true"
           style={{
-            width: 40,
-            height: 40,
+            width: 44,
+            height: 44,
             borderRadius: 12,
-            background: logoBg,
-            color: logoColor,
+            background: "#fff",
+            border: "1.5px solid var(--color-border)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontWeight: 700,
-            fontSize: 13,
             flexShrink: 0,
+            overflow: "hidden",
+            position: "relative",
           }}
         >
-          {logoInitials}
+          <Image src={logoSrc} alt="" fill style={{ objectFit: "cover" }} />
         </div>
 
         <div style={{ flex: 1 }}>
@@ -117,7 +114,7 @@ export default function ExperienceItem({
 
       <div
         style={{
-          maxHeight: open ? 400 : 0,
+          maxHeight: open ? 600 : 0,
           overflow: "hidden",
           transition: "max-height 0.35s ease",
         }}
@@ -135,16 +132,34 @@ export default function ExperienceItem({
               marginBottom: "1rem",
             }}
           />
-          <p
-            style={{
-              fontSize: 13,
-              color: "var(--color-muted)",
-              lineHeight: 1.7,
-              marginBottom: "1rem",
-            }}
-          >
-            {contribution}
-          </p>
+          {Array.isArray(contribution) ? (
+            <ul
+              style={{
+                fontSize: 13,
+                color: "var(--color-muted)",
+                lineHeight: 1.7,
+                marginBottom: "1rem",
+                paddingLeft: "1.1rem",
+              }}
+            >
+              {contribution.map((point, i) => (
+                <li key={i} style={{ marginBottom: i < contribution.length - 1 ? "0.5rem" : 0 }}>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                color: "var(--color-muted)",
+                lineHeight: 1.7,
+                marginBottom: "1rem",
+              }}
+            >
+              {contribution}
+            </p>
+          )}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {highlightTags.map((tag) => (
               <span
