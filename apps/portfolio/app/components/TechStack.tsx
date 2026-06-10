@@ -2,7 +2,10 @@ import SectionHeading from "./SectionHeading";
 
 type Level = 1 | 2 | 3 | 4;
 
-const pillStyles: Record<Level, { background: string; border: string; color: string }> = {
+const pillStyles: Record<
+  Level,
+  { background: string; border: string; color: string }
+> = {
   1: { background: "#FDF5F2", border: "1.5px solid #F0DDD6", color: "#C9A99E" },
   2: { background: "#FCDDD2", border: "1.5px solid #F5C4B4", color: "#C2512D" },
   3: { background: "#F5A98E", border: "1.5px solid #E57C5A", color: "#7A2910" },
@@ -33,7 +36,6 @@ const rows: { label: string; pills: { name: string; level: Level }[] }[] = [
       { name: "Design Systems", level: 4 },
       { name: "Storybook", level: 4 },
       { name: "Tailwind CSS", level: 3 },
-      { name: "CSS Modules", level: 3 },
       { name: "Figma", level: 2 },
     ],
   },
@@ -54,7 +56,6 @@ const rows: { label: string; pills: { name: string; level: Level }[] }[] = [
       { name: "GCP Logging", level: 4 },
       { name: "Core Web Vitals", level: 3 },
       { name: "Lighthouse", level: 3 },
-      { name: "Datadog", level: 2 },
     ],
   },
   {
@@ -71,7 +72,6 @@ const rows: { label: string; pills: { name: string; level: Level }[] }[] = [
     pills: [
       { name: "REST", level: 3 },
       { name: "GraphQL", level: 2 },
-      { name: "tRPC", level: 2 },
     ],
   },
 ];
@@ -94,7 +94,13 @@ export default function TechStack() {
         }}
       >
         <div />
-        <div style={{ display: "flex", justifyContent: "space-between", padding: "0 4px" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "0 4px",
+          }}
+        >
           {legendLabels.map(({ label, level }) => (
             <span
               key={label}
@@ -191,7 +197,14 @@ export default function TechStack() {
         {legendLabels.map(({ level, label }) => (
           <div
             key={label}
-            style={{ display: "flex", alignItems: "center", gap: 7, fontSize: 12, color: "var(--color-subtle)", fontWeight: 500 }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 7,
+              fontSize: 12,
+              color: "var(--color-subtle)",
+              fontWeight: 500,
+            }}
           >
             <div
               style={{
