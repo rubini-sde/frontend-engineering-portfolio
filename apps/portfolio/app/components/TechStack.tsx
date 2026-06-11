@@ -28,6 +28,7 @@ const rows: { label: string; pills: { name: string; level: Level }[] }[] = [
       { name: "TypeScript", level: 4 },
       { name: "JavaScript", level: 3 },
       { name: "HTML / CSS", level: 3 },
+      { name: "Java", level: 3 },
     ],
   },
   {
@@ -37,23 +38,55 @@ const rows: { label: string; pills: { name: string; level: Level }[] }[] = [
       { name: "Storybook", level: 4 },
       { name: "Tailwind CSS", level: 3 },
       { name: "Figma", level: 2 },
+      { name: "CSS-in-JS (Styled Components)", level: 3 },
+    ],
+  },
+  {
+    label: "AI & Productivity",
+    pills: [
+      { name: "Gitbub Copilot CLI", level: 4 },
+      { name: "Claude Code", level: 4 },
+    ],
+  },
+  {
+    label: "Frameworks & Libraries",
+    pills: [
+      { name: "Tanstack Virtual", level: 3 },
+      { name: "SWR", level: 3 },
+      { name: "Formik", level: 3 },
+      { name: "React Hook Form", level: 2 },
+    ],
+  },
+  {
+    label: "Backend",
+    pills: [
+      { name: "Spring Boot (REST APIs)", level: 3 },
+      { name: "Spring Security", level: 3 },
+      { name: "Spring Data / JPA", level: 3 },
+      { name: "Microservices Architecture", level: 3 },
+      { name: "Maven / Gradle", level: 3 },
     ],
   },
   {
     label: "Tooling",
     pills: [
       { name: "Webpack", level: 4 },
+      { name: "Storybook", level: 4 },
+      { name: "Figma", level: 4 },
+      { name: "Swagger", level: 4 },
+      { name: "Contentstack", level: 4 },
+      { name: "Turbopack", level: 3 },
       { name: "Vite", level: 3 },
       { name: "CI/CD", level: 3 },
       { name: "Git", level: 3 },
-      { name: "Node.js", level: 2 },
-      { name: "Docker", level: 2 },
     ],
   },
   {
     label: "Observability",
     pills: [
       { name: "GCP Logging", level: 4 },
+      { name: "LogRocket", level: 4 },
+      { name: "Adobe Analytics", level: 4 },
       { name: "Core Web Vitals", level: 3 },
       { name: "Lighthouse", level: 3 },
     ],
@@ -62,9 +95,9 @@ const rows: { label: string; pills: { name: string; level: Level }[] }[] = [
     label: "Testing",
     pills: [
       { name: "Jest", level: 3 },
-      { name: "React Testing Library", level: 3 },
-      { name: "Cypress", level: 2 },
-      { name: "Playwright", level: 1 },
+      { name: "React Testing Library", level: 4 },
+      { name: "Vitest", level: 4 },
+      { name: "Playwright", level: 2 },
     ],
   },
   {
@@ -182,43 +215,6 @@ export default function TechStack() {
           )}
         </div>
       ))}
-
-      {/* Legend */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1.5rem",
-          marginTop: "1.5rem",
-          paddingLeft: LABEL_WIDTH,
-          flexWrap: "wrap",
-        }}
-      >
-        {legendLabels.map(({ level, label }) => (
-          <div
-            key={label}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 7,
-              fontSize: 12,
-              color: "var(--color-subtle)",
-              fontWeight: 500,
-            }}
-          >
-            <div
-              style={{
-                width: 10,
-                height: 10,
-                borderRadius: "50%",
-                background: pillStyles[level].background,
-                border: pillStyles[level].border,
-              }}
-            />
-            {label}
-          </div>
-        ))}
-      </div>
     </section>
   );
 }
