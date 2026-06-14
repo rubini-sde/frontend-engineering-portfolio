@@ -79,6 +79,7 @@ const rows: { label: string; pills: { name: string; level: Level }[] }[] = [
       { name: "Vite", level: 3 },
       { name: "CI/CD", level: 3 },
       { name: "Git", level: 3 },
+      { name: "Vercel", level: 3 },
     ],
   },
   {
